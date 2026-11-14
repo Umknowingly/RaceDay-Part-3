@@ -14,6 +14,7 @@ public class ApiFactory : WebApplicationFactory<Program>
 {
     private readonly string _databaseName = Guid.NewGuid().ToString();
 
+    // the override is called when the API is being set up, before it starts listening for requests
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Testing");

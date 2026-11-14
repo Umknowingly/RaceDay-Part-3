@@ -5,6 +5,7 @@ namespace RaceDay.Tests;
 
 public class PasswordHasherTests
 {
+    // thie lets us test the password hasher without needing to set up the whole API
     private readonly IPasswordHasher _hasher = new Pbkdf2PasswordHasher();
 
     [Fact]

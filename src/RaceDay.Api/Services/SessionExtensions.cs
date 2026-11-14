@@ -15,7 +15,11 @@ public static class RaceDaySessionExtensions
         session.SetInt32(SessionKeys.UserId, userId);
         session.SetString(SessionKeys.Role, role);
     }
-
+    /// <summary>
+    /// Gets the user ID stored in the session.
+    /// </summary>
+    /// <param name="session">The session to retrieve the user ID from.</param>
+    /// <returns>The user ID, or `null` if no user ID is stored in the session.</returns>
     public static int? GetUserId(this ISession session) => session.GetInt32(SessionKeys.UserId);
 
     public static string? GetRole(this ISession session) => session.GetString(SessionKeys.Role);

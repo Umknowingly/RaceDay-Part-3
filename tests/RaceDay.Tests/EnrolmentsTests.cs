@@ -5,7 +5,7 @@ using RaceDay.Api.Models;
 using Xunit;
 
 namespace RaceDay.Tests;
-
+// these tests use the real API in memory, but with an in-memory database so they don't touch raceday.db and need no setup
 public class EnrolmentsTests : IClassFixture<ApiFactory>
 {
     private readonly ApiFactory _factory;

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RaceDay.Api.Data;
 using RaceDay.Api.Dtos;
 using RaceDay.Api.Models;
+using Xunit;
 
 namespace RaceDay.Tests;
 

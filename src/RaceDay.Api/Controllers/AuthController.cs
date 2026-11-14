@@ -63,7 +63,8 @@ public class AuthController : ControllerBase
         return CreatedAtAction(nameof(UsersController.GetUser), "Users", new { id = user.UserID }, UserSummary.From(user));
     }
 
-    // this logs in a user and starts a server-side session holding the user's ID and role. It is a public endpoint, and on success a session cookie is returned and used automatically by Swagger UI and browsers for every later request. No token is returned in the response body.
+    // this logs in a user and starts a server-side session holding the user's ID and role. It is a public endpoint, and on success a session cookie is returned and
+    // used automatically by Swagger UI and browsers for every later request. No token is returned in the response body.
     [HttpPost("login")]
     [ProducesResponseType(typeof(UserSummary), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]

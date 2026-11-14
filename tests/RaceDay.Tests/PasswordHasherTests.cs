@@ -1,4 +1,5 @@
 using RaceDay.Api.Services;
+using Xunit;
 
 namespace RaceDay.Tests;
 

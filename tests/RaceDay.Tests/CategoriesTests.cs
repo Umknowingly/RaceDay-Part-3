@@ -2,6 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using RaceDay.Api.Dtos;
 using RaceDay.Api.Models;
+using Xunit;
 
 namespace RaceDay.Tests;
 

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RaceDay.Api.Data;
+using Xunit;
 
 namespace RaceDay.Tests;
 

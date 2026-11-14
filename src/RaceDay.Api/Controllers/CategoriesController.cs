@@ -65,11 +65,7 @@ public class CategoriesController : ControllerBase
         return CreatedAtAction(nameof(GetEventCategories), new { eventId }, CategoryResponse.From(category, 0));
     }
 
-    /// <summary>Lists the categories available for an event.</summary>
-    /// <remarks>Public endpoint. EnrolmentCount excludes cancelled enrolments, so a screen can show how many places are left.</remarks>
-    /// <param name="eventId">The event's ID.</param>
-    /// <response code="200">The event's categories (possibly an empty list).</response>
-    /// <response code="404">No event with that ID.</response>
+    /// <summary>Lists all categories for an event.</summary>   
     [HttpGet("events/{eventId:int}/categories")]
     [ProducesResponseType(typeof(IEnumerable<CategoryResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -91,14 +87,7 @@ public class CategoriesController : ControllerBase
         return Ok(categories);
     }
 
-    /// <summary>Removes a category from an event.</summary>
-    /// <remarks>Organiser only, and only for events they own. A category that already has enrolments cannot be removed.</remarks>
-    /// <param name="id">The category's ID.</param>
-    /// <response code="204">The category was removed.</response>
-    /// <response code="401">Not logged in.</response>
-    /// <response code="403">Not an Organiser, or the event belongs to another Organiser.</response>
-    /// <response code="404">No category with that ID.</response>
-    /// <response code="409">The category already has enrolments.</response>
+    /// <summary>Deletes a category.</summary>
     [HttpDelete("categories/{id:int}")]
     [SessionAuthorize(Roles = RoleNames.Organiser)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]

@@ -7,7 +7,7 @@ using RaceDay.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- Database (EF Core, SQLite file, Code-First) ---
+// --- Database ---
 // A relative Data Source such as "raceday.db" is placed in the project folder, so the same
 // file is used however the API is started. A full path (for example in Docker) is used as given.
 var sqlite = new SqliteConnectionStringBuilder(builder.Configuration.GetConnectionString("RaceDayDb"));

@@ -6,6 +6,7 @@ using Xunit;
 
 namespace RaceDay.Tests;
 
+// this file contains tests for the results-related endpoints, which are part of the enrolments controller
 public class ResultsTests : IClassFixture<ApiFactory>
 {
     private readonly ApiFactory _factory;

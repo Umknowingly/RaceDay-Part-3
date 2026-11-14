@@ -48,7 +48,7 @@ public class EnrolmentsTests : IClassFixture<ApiFactory>
         Assert.Equal(category.Name, enrolment.CategoryName);
         Assert.False(enrolment.HasResult);
     }
-
+    // ---------- POST /api/categories/{categoryId}/enrolments ----------
     [Fact]
     public async Task Enrol_WithoutASession_Returns401()
     {

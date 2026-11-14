@@ -26,6 +26,10 @@ public sealed class Pbkdf2PasswordHasher : IPasswordHasher
         return $"v1.{Iterations}.{Convert.ToBase64String(salt)}.{Convert.ToBase64String(key)}";
     }
 
+    // This method verifies a password against a stored hash. It splits the stored hash into its
+    // components, checks the version and iteration count, and then derives a key from the
+    // provided password using the same salt and iteration count. Finally, it compares the
+    // derived key to the expected key in a time-constant manner to prevent timing attacks.
     public bool Verify(string password, string storedHash)
     {
         var parts = storedHash.Split('.');

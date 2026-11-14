@@ -6,6 +6,7 @@ namespace RaceDay.Tests;
 
 public class DbContextTests
 {
+    // the fact below is a bit of a hack, but it works for now. We could also store the allowed
     [Fact]
     public void Model_UsesTheSameSixTablesAsThePart1Erd()
     {

@@ -9,8 +9,10 @@ public interface IPasswordHasher
 }
 
 /// <summary>
-/// 
+/// Hashes passwords using PBKDF2 with SHA-256 and verifies them against stored hashes.
 /// </summary>
+/// <remarks>Hashes use a random salt and 600,000 iterations. Stored hashes include a version identifier,
+/// iteration count, salt, and derived key.</remarks>
 public sealed class Pbkdf2PasswordHasher : IPasswordHasher
 {
     private const int SaltSize = 16;

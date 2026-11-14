@@ -13,6 +13,7 @@ public sealed class SessionAuthorizeAttribute : Attribute, IAuthorizationFilter
     /// <summary>Comma-separated list of allowed roles, e.g. "Organiser".</summary>
     public string? Roles { get; set; }
 
+    // this is called for every request to an endpoint with this attribute
     public void OnAuthorization(AuthorizationFilterContext context)
     {
         var session = context.HttpContext.Session;

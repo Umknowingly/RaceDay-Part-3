@@ -156,6 +156,13 @@ internal static class TestHelpers
         return enrolment.EnrolmentID;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="factory"></param>
+    /// <param name="enrolmentId"></param>
+    /// <param name="position"></param>
+    /// <returns></returns>
     public static async Task SeedResultAsync(ApiFactory factory, int enrolmentId, int position = 1)
     {
         using var scope = factory.Services.CreateScope();

@@ -34,7 +34,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddControllers();
 
-// --- Swagger / OpenAPI ---
+// --- Swagger ---
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {

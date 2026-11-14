@@ -26,6 +26,8 @@ public sealed class SessionAuthorizeAttribute : Attribute, IAuthorizationFilter
             return;
         }
 
+        // the if statement below is a bit of a hack, but it works for now. We could also store the allowed
+        // roles in a static dictionary and check that instead.
         if (!string.IsNullOrWhiteSpace(Roles))
         {
             var allowed = Roles.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);

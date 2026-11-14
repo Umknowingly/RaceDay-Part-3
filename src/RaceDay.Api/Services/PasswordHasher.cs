@@ -9,8 +9,7 @@ public interface IPasswordHasher
 }
 
 /// <summary>
-/// PBKDF2 (HMAC-SHA256) with a random per-password salt. Stored format:
-/// v1.{iterations}.{saltBase64}.{hashBase64}. Passwords are never stored in plain text.
+/// 
 /// </summary>
 public sealed class Pbkdf2PasswordHasher : IPasswordHasher
 {

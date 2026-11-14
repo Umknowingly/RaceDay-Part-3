@@ -157,12 +157,12 @@ internal static class TestHelpers
     }
 
     /// <summary>
-    /// 
+    /// Adds a finished race result to the database.
     /// </summary>
-    /// <param name="factory"></param>
-    /// <param name="enrolmentId"></param>
-    /// <param name="position"></param>
-    /// <returns></returns>
+    /// <param name="factory">The API factory providing the services used to access the database.</param>
+    /// <param name="enrolmentId">The ID of the enrolment associated with the result.</param>
+    /// <param name="position">The finishing position to assign. Defaults to 1.</param>
+    /// <returns>A task that represents the asynchronous save operation.</returns>
     public static async Task SeedResultAsync(ApiFactory factory, int enrolmentId, int position = 1)
     {
         using var scope = factory.Services.CreateScope();

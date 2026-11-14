@@ -204,7 +204,7 @@ public class ResultsTests : IClassFixture<ApiFactory>
         Assert.True(enrolments!.Single(e => e.EnrolmentID == s.EnrolmentId).HasResult);
     }
 
-    // ---------- GET /api/events/{eventId}/results (public) ----------
+    // ---------- GET /api/events/{eventId}/results  ----------
 
     [Fact]
     public async Task GetEventResults_WithoutASession_ReturnsResultsInPositionOrder()

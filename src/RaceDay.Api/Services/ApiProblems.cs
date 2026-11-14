@@ -11,6 +11,7 @@ public static class ApiProblems
             StatusCode = status
         };
 
+    // these are the most common ones, but you can also use Create() to make any other RFC 7807 response
     public static ObjectResult Unauthorized(string detail = "You must be logged in to use this endpoint.") =>
         Create(StatusCodes.Status401Unauthorized, "Unauthorized", detail);
 

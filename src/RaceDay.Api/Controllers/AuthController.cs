@@ -82,10 +82,9 @@ public class AuthController : ControllerBase
         return Ok(UserSummary.From(user));
     }
 
-    /// <summary>Ends the current session.</summary>
-    /// <remarks>Requires a logged-in user (any role).</remarks>
-    /// <response code="204">Logged out.</response>
-    /// <response code="401">Not logged in.</response>
+    // this will log out a user and clear the server-side session. It is a public endpoint, and on success the session cookie is
+    // cleared and no longer sent automatically by Swagger UI and browsers for every later request. No token is returned in the
+    // response body.
     [HttpPost("logout")]
     [SessionAuthorize]
     [ProducesResponseType(StatusCodes.Status204NoContent)]

@@ -7,8 +7,9 @@ using RaceDay.Api.Services;
 
 namespace RaceDay.Api.Controllers;
 
-/// <summary>Age and distance categories within an event. Viewing is public; changes need the event's Organiser.</summary>
-[ApiController]
+// here is the controller for managing categories. It has endpoints for creating, listing and deleting categories. All endpoints
+// require a session cookie to be sent with the request, and only organisers can create and delete categories. The list endpoint is
+// public and can be accessed by anyone.
 [Route("api")]
 [Produces("application/json")]
 public class CategoriesController : ControllerBase
@@ -17,16 +18,9 @@ public class CategoriesController : ControllerBase
 
     public CategoriesController(RaceDayDbContext db) => _db = db;
 
-    /// <summary>Adds an age or distance category (e.g. Under 20, 10km, 21km) to an event.</summary>
-    /// <remarks>Organiser only, and only for events they own. Category names must be unique within an event.</remarks>
-    /// <param name="eventId">The event's ID.</param>
-    /// <param name="request">name is required. Add distanceKm for a distance category and leave it out for an age category.</param>
-    /// <response code="201">The category was created.</response>
-    /// <response code="400">Validation failed.</response>
-    /// <response code="401">Not logged in.</response>
-    /// <response code="403">Not an Organiser, or the event belongs to another Organiser.</response>
-    /// <response code="404">No event with that ID.</response>
-    /// <response code="409">The event already has a category with that name.</response>
+    //here's how to create a category. It requires a session cookie to be sent with the request, and only organisers can create
+    //categories. The request body must contain the name, description, distance and max participants for the category. The response
+    //will contain the created category.
     [HttpPost("events/{eventId:int}/categories")]
     [SessionAuthorize(Roles = RoleNames.Organiser)]
     [ProducesResponseType(typeof(CategoryResponse), StatusCodes.Status201Created)]
